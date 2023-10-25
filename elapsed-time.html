@@ -1,0 +1,27 @@
+
+<body>
+    BEGIN: <div id="beginTime">0</div><br>
+    <button id="stopButton">STOP</button><br>
+    END: <div id="endTime">0</div><br>
+    <br>
+    ELAPSED TIME (difference e.g. end - begin): 
+    <div id="elapsed">0</div>
+</body>
+<script>
+    const begin = new Date();//If we dont tell specific date its RIGHT NOW - PAGE LOADED
+    beginTime.innerText = begin.toString();
+
+    function onStop(){
+        const end = new Date();// WEHN THE BUTTON IS CLICKED 
+        endTime.innerText = end.toString();
+
+        const elapsedMS = end.getTime() - begin.getTime();
+
+        const seconds = elapsedMS / 1000; // covert back to seconds
+        elapsed.innerText = (elapsedMS / 1000).toFixed(2);//display pretty 2 decimals
+    
+    }
+
+    stopButton.onclick = onStop;
+
+</script>
